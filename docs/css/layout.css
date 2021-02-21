@@ -1,0 +1,1 @@
+.site{max-width:var(--layout-main-width);margin:0 auto;padding:2em}@media (min-width:600px){.site-header{display:flex;align-items:center}.site-header,.site-header nav{margin-left:auto}}

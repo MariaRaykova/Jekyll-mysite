@@ -23,7 +23,9 @@ email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
  Write an awesome description for your new site here. 
 destination: docs
-baseurl: "/Jekyll-mysite" # the subpath of your site, e.g. /blog
+baseurl: ""
+# това го закоментираме, защото ще го ползваме за гитхъб
+#baseurl: "/Jekyll-mysite" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
@@ -55,3 +57,4 @@ exclude:
   - _assets
   - gulpfile.js
   - package.json
+  - package-lock.json
