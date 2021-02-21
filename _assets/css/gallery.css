@@ -1,0 +1,120 @@
+.gallery {
+    padding: 0;
+    margin: 0;
+    /* три снимки на ред */
+    display: flex;
+    /* за да минат на нов ред тези, които не се събират */
+    flex-wrap: wrap;  
+    /* празното пространсвто ако има такова да се сложи между елементите */
+    justify-content: space-between;
+}
+
+.gallery li {
+    /* така контролираме колко да се видят на ред, няма да се уголемяват, няма да се смаялват, flex-basis 30% */
+    flex: 0 0 100%;
+    margin-bottom: 3%;
+    list-style: none outside;
+    /* border: 0.5em solid #222; */
+    background: #fff;
+    display: flex;
+    margin-bottom: 5%;
+    position: relative;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease-in;
+    animation-fill-mode: both; 
+}
+@media(min-width: 600px) {
+    .gallery li {
+        flex: 0 0 47%;
+        margin-bottom: 6%;
+    }
+}
+@media(min-width: 1024px) {
+    .gallery li {
+        flex: 0 0 30%;
+        margin-bottom: 5%;
+    }
+}
+.gallery li:nth-child(2){animation-delay: 0.2s}
+.gallery li:nth-child(3){animation-delay: 0.3s}
+.gallery li:nth-child(4){animation-delay: 0.4s}
+.gallery li:nth-child(5){animation-delay: 0.5s}
+.gallery li:nth-child(6){animation-delay: 0.6s}
+.gallery li:nth-child(7){animation-delay: 0.7s}
+.gallery li:nth-child(8){animation-delay: 0.8s}
+.gallery li:nth-child(9){animation-delay: 0.9s}
+
+.gallery li:before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 0; left: 0; right: 0; bottom: 0;
+    box-shadow: 0 0 2em 0 rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+.gallery li:hover:before {
+    opacity: 1;
+}
+
+.gallery a {
+    /* оправихме да не се вижда фона на ли-тата */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 0.5em solid black;
+    /* за да центрираме хоризонтално снимките в а-то */
+    justify-content: center;
+    /* и винаги да има малко пространство отгоре и отдолу - да се вижда червения фон*/
+    padding: 1em;
+}
+.gallery span {
+    display: block;
+    position: relative;
+}
+.gallery span:before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* да са полупрозрачни снимките */
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in;
+}
+.gallery span:after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 0; left: 0; right: 0; bottom: 0;
+    box-shadow: 0 0 0.2em 0 rgba(0, 0, 0, 0.5) inset;
+}
+.gallery a:hover span:before {
+    opacity: 0;
+}
+.gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.modal {
+    position: fixed;
+    /* Оразмеряваме спрямо бодито */
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal .inner { 
+    max-width: 90vw;
+    max-height: 90vh;
+    display: block;
+    background: #fff;
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0.5em rgba(0, 0, 0, 0.5);
+}
+.modal .inner img {
+    width: 100%;
+    height: 100%
+}

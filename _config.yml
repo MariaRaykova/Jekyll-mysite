@@ -22,7 +22,8 @@ title: Your awesome title
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
  Write an awesome description for your new site here. 
-baseurl: "" # the subpath of your site, e.g. /blog
+destination: docs
+baseurl: "/Jekyll-mysite" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
@@ -40,6 +41,7 @@ plugins:
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - docs
   - .sass-cache/
   - .jekyll-cache/
   - gemfiles/
@@ -50,3 +52,6 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - _assets
+  - gulpfile.js
+  - package.json

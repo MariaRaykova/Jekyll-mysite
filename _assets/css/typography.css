@@ -1,0 +1,88 @@
+/* import на shift-a - max 2 - за заглавие и навигация примерно и за body text */
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,300i,400,400i,500,500i,700,700i|Fira+Sans:300,300i,400,400i,500,500i,700,700i&display=swap&subset=cyrillic,cyrillic-ext,latin-ext');
+
+*, *:before, *::after {
+    /* мини ресет CSS - искаме да махнем цялото бяло пространство преди и след вс елементи */
+    margin: 0;
+    padding: 0;
+    /* всичски елементи, които са в страницата да наследяват box-sizing стойнстта  */
+    box-sizing: inherit; 
+}
+html {
+    /* ако никъде др не сетнем box-sizing вс елементи ще имат border box */
+    box-sizing: border-box; 
+    /* 14px body font-size, line-height - 1.5 пъти от фонт сайз-а */
+    /* за всеки символ по отделно проверява дали съществува първия шрифт, после втория, третия ако сме задали generic-a  */
+    font: var(--font-size-body, 14px)/1.5 "Fira Sans", Verdana, sans-serif;
+}
+/* mobile first - 14px и правим responcive надолу */
+/* всичко е едно под др, рядко ни се налага да правим layout т.е. две кутийки една до друга, три още по-рядко */
+/* само тук можем да си позволим да ползваме пиксели, защото променяме хтмл-а и сетваме основните font size */
+/* навсякъде другаде използваме em-ове, за да може да получим наготово промяната в празното пространство, когато сменим този font size */
+/* em - релативна единица към фонт сайза на текущия елемент 1em e 100% от текущия body font size-a*/
+
+@media (min-width: 600px) {
+    html { font-size: var(--font-size-body-larger, 16px); }
+}
+@media (min-width: 1024px) {
+    html { font-size: var(--font-size-body-big, 18px);  }
+}
+@media (min-width: 1600px) {
+    html { font-size: var(--font-size-body-huge, 20px);  }
+}
+
+body, table, form, select, option, input, textarea{
+    font: inherit;
+    color: var(--color-body-text, #000);
+    background-color: var(--color-body-bgrd, #FFF);
+}
+h1, h2, h3, h4, h5 {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    font-weight: normal;
+    font-family: "Fira Sans", Verdana, sans-serif;
+}
+/* тук вече създаваме структурата на база боди фонт сайза-а */
+h1 { font-size: 2.6em; } /*260% х тек фонт сайз - margin bottom ще е 50% от това*/
+h2 { font-size: 2.0em; }
+h3 { font-size: 1.8em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1em; }
+
+a {
+    text-decoration: none;
+    color: var(--color-link-default, #0a0);
+}
+p, ul, ol {
+    padding-bottom: 1.5em;
+}
+ul, ol {
+    padding-bottom: 2em;
+}
+
+ul ul, ol ul, ul ol, ol ol {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+ol > li > ol > li {
+    list-style-type: lower-roman;
+}
+
+/* цитатите */
+blockquote {
+  padding: 1rem;
+}
+/* автор вътре в цитатите */
+blockquote .author {
+   font-style: italic;
+   text-align: right;
+   opacity: 0.5;
+}
+blockquote .author:before {
+    display: inline-block;
+    /* специален симпвол подобен на тире */
+    content: '\2014';
+    padding-right: 0.5em;
+ }
+/* и така създаваме тази типография тук  */
