@@ -7,4 +7,6 @@
 @import url('navigation.css');
 @import url('animations.css');
 @import url('transitions.css');
-@import url('gallery.css');
+/* @import url('gallery.css'); */
+@import url('modal.css');
+@import url('gallery-grid.css');

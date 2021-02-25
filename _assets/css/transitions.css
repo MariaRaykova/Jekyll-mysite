@@ -23,7 +23,6 @@ body.loaded .site-title {
 .site-nav li {
     opacity: 0;
     transform: translateY(-1em);
-    /* transition: opacity 5s ease-in, transform 5s ease-in-out; */
     transition: opacity 4s, transform 4s;
 }
 .site-nav li:nth-child(1) {

@@ -1,11 +1,12 @@
 <nav class="site-nav location-{{include.location}}">
     <ul>
-        {% for page in site.pages %}
-        {% if page.title and page.nomainnav != 1 %}
+        {% assign sorted_pages = site.pages | sort:"order" %}
+        {% for item in sorted_pages %}
+        {% if item.title %}
         <li>
-            <a href="{{site.baseurl}}{{ page.url }}">
-                {% if page.icon %} <i class="fas {{page.icon}}"></i> {% endif %}
-                {{ page.title }}
+            <a href="{{site.baseurl}}{{ item.url }}">
+                {% if item.icon %} <i class="fas {{item.icon}}"></i> {% endif %}
+                {{ item.title }}
             </a>
         </li>
         {% endif %}
