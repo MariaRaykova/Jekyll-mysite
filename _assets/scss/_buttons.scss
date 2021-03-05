@@ -1,0 +1,37 @@
+.button {
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    margin-bottom: 1em;
+    background-color: var(--color-link-default);
+    color: var(--color-body-bgrd);
+    border-radius: 0.3em;
+    border: 1px solid transparent;
+
+    &:hover {
+        color: var(--color-link-default);
+        background-color: var(--color-body-bgrd);
+        border-color: var(--color-link-default);
+    }
+
+    &-secondary {
+        color: var(--color-link-default);
+        background-color: var(--color-body-bgrd);
+        border-color: var(--color-link-default);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    
+    &-wrapper {
+        display: flex;
+
+        .button {
+            display: block;
+            
+            & + .button {
+                margin-left: 1em
+            }
+        }
+    }
+}

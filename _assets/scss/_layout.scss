@@ -1,0 +1,40 @@
+.site {
+   max-width: var(--layout-main-width);
+   margin: 0 auto;
+   padding: 2em;
+
+   @include bp(laptop){
+        display: grid;
+        grid-template-columns: 1fr 2fr;   
+        grid-column-gap: 2em;
+        grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+
+        &-header {
+            grid-area: header;
+        }
+        &-footer {
+             grid-area: footer;
+        }
+        &-main {
+            grid-area: main;
+        }
+        &-sidebar {
+            grid-area: sidebar;
+        }
+   }
+   @include bp(mobile){
+        &-header {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            
+            nav {
+                margin-left: auto;
+            }
+        }
+   }
+}
+
