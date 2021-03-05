@@ -9,10 +9,10 @@ let gulp = require("gulp"),
 	cp = require("child_process");
 
 gulp.task("css", function() {
-	return gulp.src( '_assets/css/**/*.css' )
+	return gulp.src( '_assets/scss/**/*.scss' )
 		.pipe( size() )
-		// .pipe( sass().on('error', sass.logError) )
-		.pipe( autoprefixer() ) //вземаме нашия css даваме го на autoprefixer и го записваме в docs.css
+		.pipe( sass().on('error', sass.logError) )
+		.pipe( autoprefixer() ) 
 		.pipe( size() )
 		.pipe( csso() )
 		.pipe( size() )
@@ -39,7 +39,7 @@ gulp.task("watch", function() {
 		}
 	});
 
-	gulp.watch( '_assets/css/**/*.css', gulp.series('css') );
+	gulp.watch( '_assets/scss/**/*.scss', gulp.series('css') );
 
 	gulp.watch(
 		[
