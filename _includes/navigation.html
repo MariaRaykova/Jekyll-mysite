@@ -1,18 +1,25 @@
 <nav class="site-nav location-{{include.location}}">
     <ul>
-        {% assign sorted_pages = site.pages | sort:"order" %}
-        {% for item in sorted_pages %}
-        {% if item.title %}
-        <li>
-            <a href="{{site.baseurl}}{{ item.url }}">
+        {% for item in site.navigation %}
+        <li {% if item.url=page.url %} class="selected" {% endif %}>
+            <a href="{{ site.url }}{{ item.url }}">
                 {% if item.icon %} <i class="fas {{item.icon}}"></i> {% endif %}
-                {{ item.title }}
+                {{ item.text }}
             </a>
+            {% if item.items %}
+            <ul>
+                {% for subitem in item.items %}
+                <li {% if subitem.url=page.url %} class="selected" {% endif %}>
+                    <a href="{{ site.url }}{{ subitem.url }}">
+                        {% if item.icon %} <i class="fas {{ subitem.icon }}"></i> {% endif %}
+                        {{ subitem.text }}
+                    </a>
+                 </li>   
+                 {% endfor %}
+            </ul>
+            {% endif %}
         </li>
-        {% endif %}
         {% endfor %}
     </ul>
-    {{ include.location }}
-</nav>
-
   
+</nav>

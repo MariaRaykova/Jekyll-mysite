@@ -1,3 +1,11 @@
+.page-gallery2 .site {
+    @include bp( laptop ){
+        grid-template-areas: 
+        "header header"
+        "main main"
+        "footer footer";
+    }
+}
 
 .gallery {
     display: grid;
@@ -6,27 +14,121 @@
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 1em;
     grid-auto-flow: dense; 
+    position: relative; 
+
+    a,
+    span,
+    img {
+        display: block; 
+    }
+    input {
+        display: none;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+
     li {
         display: block;
         list-style: none outside;
-        position: relative;
         overflow: hidden;
         grid-column: span 2;
-        &:before {
-            display: block;
-            content: '';
-            padding-top: 50%;
+
+        &:hover {
+            outline: 0.5em solid black;
         }
+
+        label {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            span {
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+            }
+            strong {
+                display:none;
+            } 
+            &:before {
+                display: block;
+                content: '';
+                padding-top: calc(50% - 1em);
+            }
+            &.close {
+                display: none;
+                width: 2em;
+                height: 2em;
+                line-height: 1;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.3s ease-in-out;
+
+                &:hover {
+                    transform: scale(1.1);
+                    outline: 0.5em solid white;
+                }
+            }
+        }
+
+        input:checked ~ label {
+           &.close {
+               display: flex;
+               position: absolute;
+               top: 0; right: 0;
+               background: black;
+               color: white;
+               z-index: 300;
+           }
+        }
+        input:checked ~ a {
+           display: flex;
+        }
+
+        a {
+            display: none;
+            position: absolute;
+            top: 2em; left: 2em; right: 2em; bottom: 2em;
+            overflow: hidden;
+            z-index: 100;
+            background: rgba(black, 0.7);
+            box-shadow: 0 0 20vh 10em rgba(black, 0.7);
+            
+            span {
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                display: flex;
+                justify-content: center;
+            }
+            strong {
+                display: none;
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+ 
+       
         &.portrait {
             grid-column: span 1;
             grid-row: span 2;
-            &:before {
-   
+
+            label:before {
+                display: flex; 
                 padding-top: 200%; 
             }
-            a {
-                display: flex; 
-            }
+            a img{
+                height: 100%;
+                width: auto;
+            } 
         }
         &.small {
             grid-column: span 1;
@@ -35,49 +137,10 @@
                 padding-top: 100%; 
             }
         }
-        & > a {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+        &.small img,
+        &.portrait img {
+            width: auto;
+            height: 100%;
         }
     }
-}
-
-.gallery li.portrait
-.gallery li.small img,
-.gallery li.portrait img {
-    width: auto;
-    height: 100%;
-}
-
-
-.gallery img {
-    display: block; 
-    width: 100%;
-    height: auto;
-}
-.gallery a,
-.gallery span {
-    display: block; 
-}
-
-.gallery li > a:hover {
-
-}
-.gallery li > a:hover img{
-   position: relative; 
-   z-index: 1;
-}
-.gallery li > a:hover:before {
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 2;
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    content: '';
-}
-.gallery li > a:hover strong{
-    position: absolute;
-    top: 1em;
-    left: 1em;
-    z-index: 3;
-    color: #fff;
 }

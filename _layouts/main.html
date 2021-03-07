@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{site.title}}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/css/site.css">
+    {% if page.css %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/pages/{{ page.css }}.css">
+    {% endif %}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <script src="{{ site.baseurl }}/scripts/site.js"></script>
 </head>

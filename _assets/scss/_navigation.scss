@@ -1,14 +1,50 @@
 .site-nav > ul {
     display: flex;
     padding: 0;
+
+    ul {
+        display: block;
+        padding: 0.5em; 
+        position: absolute;
+        top: 100%; left: 0em;
+        width: 15em;
+        margin-top: 1em;
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(-1em);
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        // @for $i from 1 through 10 {
+        //     &:nth-child(#{$i}) { transition-delay: 0.1s * $i;}
+        // }
+    }
 }
 .site-nav li {
     display: block;
     list-style: none outside;
     padding: 0 0.5em;
- 
+    position: relative;
+
+    li {
+        padding: 0;
+        &:not(:last-child) {
+            margin-bottom: 0.5em;
+        }
+    }
+    &:hover {
+        ul {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+            li:hover {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: all;
+            }
+        }
+        
+    }
 }
-.site-nav li:first-child {
+.site-nav > li:first-child {
     padding-left: 0;
 }
 .site-nav a {
