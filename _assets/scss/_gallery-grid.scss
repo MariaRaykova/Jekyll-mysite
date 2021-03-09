@@ -14,7 +14,6 @@
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 1em;
     grid-auto-flow: dense; 
-    position: relative; 
 
     a,
     span,
@@ -64,12 +63,18 @@
             }
             &.close {
                 display: none;
+                font-size: 2em;
                 width: 2em;
                 height: 2em;
                 line-height: 1;
                 align-items: center;
                 justify-content: center;
                 transition: transform 0.3s ease-in-out;
+                position: fixed;
+                top: 2em; right: 2em;
+                background: black;
+                color: white;
+                z-index: 300;
 
                 &:hover {
                     transform: scale(1.1);
@@ -81,11 +86,7 @@
         input:checked ~ label {
            &.close {
                display: flex;
-               position: absolute;
-               top: 0; right: 0;
-               background: black;
-               color: white;
-               z-index: 300;
+             
            }
         }
         input:checked ~ a {
@@ -94,18 +95,21 @@
 
         a {
             display: none;
-            position: absolute;
-            top: 2em; left: 2em; right: 2em; bottom: 2em;
+            position: fixed;
+            top: 0; 
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vw;
+            height: 80vh;
             overflow: hidden;
             z-index: 100;
             background: rgba(black, 0.7);
-            box-shadow: 0 0 20vh 10em rgba(black, 0.7);
+            box-shadow: 0 0 100vh 100em rgba(black, 0.7);
             
             span {
                 position: absolute;
                 top: 0; left: 0; right: 0; bottom: 0;
-                display: flex;
-                justify-content: center;
+    
             }
             strong {
                 display: none;
@@ -113,6 +117,9 @@
             img {
                 width: 100%;
                 height: auto;
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
             }
         }
  

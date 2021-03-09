@@ -3,6 +3,7 @@
    margin: 0 auto;
    padding: 2em;
 
+
    @include bp(laptop){
         display: grid;
         grid-template-columns: 1fr 2fr;   
@@ -29,12 +30,12 @@
         &-header {
             display: flex;
             align-items: center;
-            margin-left: auto;
-            
-            nav {
-                margin-left: auto;
-            }
-        }
+        //     margin-left: auto;            
+        //     nav {
+        //         margin-left: auto;
+        //     }
+        // }
    }
+}
 }
 
